@@ -6,6 +6,7 @@ function App() {
     <>
       <h1>Rotomdex</h1>
       <h2>Welcome to the rotomdex</h2>
+      <h3>pokegod</h3>
       <p>Here you can find information of all the pokemons</p>
       <img src="" alt="" />
       <div>
