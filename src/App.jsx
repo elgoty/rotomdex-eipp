@@ -7,9 +7,9 @@ function App() {
       <h1>Rotomdex</h1>
       <h2>Welcome to the rotomdex</h2>
       <p>Here you can find information of all the pokemons</p>
-      
+      <img src="" alt="" />
       <div>
-        <p>Developed by eipp</p>
+        <p>Developed by E.I.P.P</p>
         <p>2025</p>
         <p>Al, rights reserved</p>
       </div>
