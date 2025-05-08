@@ -18,6 +18,8 @@ function App() {
           imagen:datos.sprites.front_default,
           altura:datos.height,
           peso:datos.weight,
+          types: datos.types.map((t) => t.type.name),
+          abilities: datos.abilities.map((a) => a.ability.name),
         }
       })
     )
@@ -38,6 +40,8 @@ function App() {
         <img src={pokemon.imagen} alt="" />
         <p>altura: {pokemon.altura/10}m</p>
         <p>{pokemon.peso/10}kg</p>
+        <p>{pokemon.types}</p>
+        <p>{pokemon.abilities}</p>
       </div>
     ))}
       <div>
