@@ -1,7 +1,8 @@
 import './App.css'
 import {useState, useEffect} from "react"
 function App() {
-  const [pokemones, setPokemones] = useState([])
+  const [pokemones, setPokemones] = useState([]);
+  const [busquedaPokemon, setBusquedaPokemon] = useState("")
   useEffect(() => {
     const fetchPokemones = async () => {
       const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=20')
@@ -27,14 +28,22 @@ function App() {
   }
     fetchPokemones()
   }, [])
+  const pokemonesFiltrados = pokemones. filter((p) => {
+    return p.nombre.toLowerCase().includes(busquedaPokemon)
+  })
 
   return (
     <>
       <h1>Rotomdex</h1>
       <h2>Welcome to the rotomdex</h2>
-      <h3>pokegod</h3>
-      <p>Here you can find information of all the pokemons</p>
-      {pokemones.map(pokemon =>(
+      <p>find your favorite pokemon!</p>
+      <input classname='search' 
+      type="text" 
+      placeholder="Search your pokemon" 
+      value={busquedaPokemon} 
+      onChange={(e) => setBusquedaPokemon(e.target.value.toLowerCase())} />
+      
+      {pokemonesFiltrados.map(pokemon =>(
       <div className='tutifruti' key={pokemon.id}>
         <h2>{pokemon.nombre} ({pokemon.id})</h2>
         <img src={pokemon.imagen} alt="" />
