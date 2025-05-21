@@ -1,5 +1,6 @@
 import './App.css'
 import {useState, useEffect} from "react"
+import Pokemon from "./components/Pokemon";
 function App() {
   const [pokemones, setPokemones] = useState([]);
   const [busquedaPokemon, setBusquedaPokemon] = useState("")
@@ -29,12 +30,14 @@ function App() {
     fetchPokemones()
   }, [])
   const pokemonesFiltrados = pokemones. filter((p) => {
-    return p.nombre.toLowerCase().includes(busquedaPokemon)
+    return p.nombre.toLowerCase().includes(busquedaPokemon  )
   })
 
   return (
     <>
       <h1>Rotomdex</h1>
+      <Pokemon/>
+
       <h2>Welcome to the rotomdex</h2>
       <p>find your favorite pokemon!</p>
       <input classname='search' 
@@ -44,14 +47,7 @@ function App() {
       onChange={(e) => setBusquedaPokemon(e.target.value.toLowerCase())} />
       
       {pokemonesFiltrados.map(pokemon =>(
-      <div className='tutifruti' key={pokemon.id}>
-        <h2>{pokemon.nombre} ({pokemon.id})</h2>
-        <img src={pokemon.imagen} alt="" />
-        <p>altura: {pokemon.altura/10}m</p>
-        <p>{pokemon.peso/10}kg</p>
-        <p>{pokemon.types}</p>
-        <p>{pokemon.abilities}</p>
-      </div>
+      <Pokemon key={pokemon.id}/>
     ))}
       <div>
         <p>Developed by E.I.P.P</p>
